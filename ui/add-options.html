@@ -1,0 +1,23 @@
+<!-- Form -->
+<input type="text" id="name" placeholder="name"></input><br><br>
+<input type="text" id="path" placeholder="filepath"></input><br><br>
+<button id="create">Create</button>
+
+<script>
+if(!window.fs) window.fs=require("fs");
+$("#create").click(function(){
+  var base="/var/www/html/";
+  var name=$("#name").val();
+  var path=$("#path").val();
+
+  if(path==""){// File
+    fs.writeFileSync(base+name,"");
+  }else if(path==name){// Folder
+    fs.mkdirSync(base+name);
+  }else{// Symbolic link
+    if(fs.existsSync(path)) fs.symlinkSync(path,base+name);
+  }
+  require("./sites.js")();
+});
+
+</script>

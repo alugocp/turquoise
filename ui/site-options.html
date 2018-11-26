@@ -1,0 +1,42 @@
+<!-- Rename -->
+<button id="rename">Rename</button>
+<input type="text" id="rename-text"></input>
+<br><br>
+
+<!-- Remove -->
+<button id="remove">Remove</button>
+<br><br>
+
+<!-- Open -->
+<button id="open">Open</button>
+
+<script>
+if(!window.opn) window.opn=require("opn");
+if(!window.fs) window.fs=require("fs");
+$("#open").click(function(){
+  opn(
+    "http://localhost/"+$(ops.target.children()[1]).text(),
+    {wait:false}
+  );
+});
+
+$("#rename").click(function(){
+  var old=$(ops.target.children()[1]).text();
+  var name=$("#rename-text").val();
+  var path="/var/www/html/";
+  fs.renameSync(path+old,path+name);
+  $(ops.target.children()[1]).text(name);
+});
+$("#rename-text").val($(ops.target.children()[1]).text());
+
+$("#remove").click(function(){
+  var target="/var/www/html/"+$(ops.target.children()[1]).text();
+  if(fs.lstatSync(target).isDirectory()){
+    fs.rmdirSync(target);
+  }else{
+    fs.unlinkSync(target);
+  }
+  require("./sites.js")();
+});
+
+</script>

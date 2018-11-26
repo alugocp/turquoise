@@ -1,0 +1,52 @@
+.logo{
+  transform:translateX(-50%);
+  margin-bottom:25px;
+  position:relative;
+  margin-top:10px;
+  height:75px;
+  left:50%;
+}
+
+/* Options */
+.options{
+  background-color:#ddd;
+  grid-column-start:1;
+  grid-column-end:5;
+  border-radius:25px;
+  overflow:hidden;
+  height:0px;
+}
+.options button{
+  background-color:skyblue;
+  border:solid 2px black;
+  border-radius:15px;
+  font-weight:bold;
+  cursor:pointer;
+  padding:5px;
+}
+.options input[type=text]{
+  border-radius:15px;
+  padding:5px;
+  border:none;
+}
+
+/* Sites */
+.sites{
+  grid-template-columns:25% 25% 25% 25%;
+  font-family:sans-serif;
+  position:relative;
+  font-weight:bold;
+  display:grid;
+}
+.sites .site{
+  text-align:center;
+  margin:25px;
+}
+.site img{
+  border:3px solid gray;
+  border-radius:15px;
+  cursor:pointer;
+  padding:10px;
+  height:55px;
+  width:55px;
+}

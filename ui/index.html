@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Alex Lugo's Turquoise</title>
+    <link rel="stylesheet" href="main.css">
+    <script>
+      var $=require("./jquery.min.js");
+    </script>
+  </head>
+  <body>
+    <div>
+      <img class="logo" src="../assets/turquoise.svg">
+    </div>
+    <div class="sites">
+      <script>
+        var ops=require("./operations.js");
+        require("./sites.js")();
+      </script>
+    </div>
+
+    <script>
+      require("../renderer.js");
+    </script>
+  </body>
+</html>
